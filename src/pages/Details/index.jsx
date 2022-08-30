@@ -1,7 +1,7 @@
 import { Button } from '../../components/Button/index.jsx'
 import { ButtonText } from '../../components/ButtonText'
 import { Header } from '../../components/Header/index.jsx'
-import { Container, Links } from './styles.js'
+import { Container, Links, Content } from './styles.js'
 import { Section } from '../../components/Section/index.jsx'
 import { Tags } from '../../components/Tags/index.jsx'
 
@@ -9,22 +9,26 @@ export function Details() {
     return (
         <Container>
             <Header />
-
-            <ButtonText title="Excluir Nota"/>
-
-            <Section title="Links úteis">
-                <Links>
-                    <li><a href="#">https://www.rocketseat.com.br/</a></li>
-                    <li><a href="#">https://www.rocketseat.com.br/</a></li>
-                </Links>
-            </Section>
-
-            <Section title="Marcadores">
-                <Tags title="express"></Tags>
-                <Tags title="node.js"></Tags>
-            </Section>
-
-            <Button title="Voltar"/>
+            <main>
+                <Content>    
+                    <ButtonText title="Excluir Nota"/>
+                    <h1>Introdução ao React</h1>
+                    <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+                    <Section title="Links úteis">
+                        <Links>
+                            <li><a href="#">https://www.rocketseat.com.br/</a></li>
+                            <li><a href="#">https://www.rocketseat.com.br/</a></li>
+                        </Links>
+                    </Section>
+                    <Section title="Marcadores">
+                        <Tags title="express"></Tags>
+                        <Tags title="node.js"></Tags>
+                    </Section>
+                    <Button title="Voltar"/>
+                </Content>
+            </main>
         </Container>
     )
 }
