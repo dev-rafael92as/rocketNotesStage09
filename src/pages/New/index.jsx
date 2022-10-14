@@ -40,6 +40,18 @@ export function New() {
     }
 
     async function handleNewNote() {
+        if (!title) {
+            alert("Faltou o título, por favor preencha :)")
+        }
+
+        if (newLink) {
+            alert("Você deixou um link sem adicionar, por favor clique em adicionar para cadastrar!")
+        }
+
+        if (newTag) {
+            alert("Você deixou uma tag sem adicionar, por favor clique em adicionar para cadastrar!")
+        }
+
         await api.post("/notes", {
             title,
             description,
