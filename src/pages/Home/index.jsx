@@ -35,7 +35,6 @@ export function Home() {
     }
 
     function handleDetails(id) {
-        console.log(id)
         navigate(`/details/${id}`);
     }
 
