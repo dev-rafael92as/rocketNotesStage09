@@ -1,6 +1,6 @@
 import { Header } from "../../components/Header";
 import { ButtonText } from "../../components/ButtonText";
-
+import { useNavigate } from "react-router-dom";
 
 import { FiPlus, FiSearch } from "react-icons/fi"
 import { Container, Brand, Menu, Search, Content, NewNote } from "./styles";
@@ -17,7 +17,13 @@ export function Home() {
     const [ search, setSeatch ] = useState("");
     const [ notes, setNotes ] = useState([])
 
+    const navigate = useNavigate()
+
     function handleTagSelected(tagName) {
+        if (tagName === "all") {
+            return setTagsSelected([]);
+        }
+        
         const alreadySelected = tagsSelected.includes(tagName);
         
         if (alreadySelected) {
@@ -26,6 +32,11 @@ export function Home() {
         } else {
             setTagsSelected(prevState => [...prevState, tagName]);
         }
+    }
+
+    function handleDetails(id) {
+        console.log(id)
+        navigate(`/details/${id}`);
     }
 
     useEffect(() => {
@@ -78,7 +89,7 @@ export function Home() {
                 <Input 
                     placeholder="Pesquisar pelo Título" 
                     icon={FiSearch}
-                    onChange={() => setSeatch(e.target.value)}
+                    onChange={(e) => setSeatch(e.target.value)}
                     />
             </Search>
 
@@ -86,7 +97,11 @@ export function Home() {
                 <Section title="Minhas notas">
                     {
                         notes.map(note => (
-                            <Note key={String(note.id)} data={note}></Note>
+                            <Note 
+                                key={String(note.id)} 
+                                data={note}
+                                onClick={() => handleDetails(note.id)}
+                            />
                         ))
                     }
                 </Section>
