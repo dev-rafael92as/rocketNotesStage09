@@ -8,6 +8,7 @@ import { Button } from "../../components/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { api } from "../../services/api";
+import { ButtonText } from "../../components/ButtonText";
 
 export function New() {
     const [ title, setTitle ] = useState("");
@@ -28,6 +29,10 @@ export function New() {
 
     function handleRemoveLink(deleted) {
         setLinks(prevState => prevState.filter(link => link !== deleted))
+    }
+
+    function handleBack() {
+        navigate(-1)
     }
 
     function handleAddTag() {
@@ -71,7 +76,11 @@ export function New() {
                 <Form>
                     <header>
                         <h1>Criar nota</h1>
-                        <Link to="/">voltar</Link>
+                        <ButtonText 
+                            title="Voltar"
+                            onClick={handleBack}    
+                        >
+                        </ButtonText>
                     </header>
 
                     <Input 
